@@ -22,7 +22,4 @@ local sources = {
 null_ls.setup {
   debug = true,
   sources = sources,
-  on_init = function(new_client, _)
-    new_client.offset_encoding = 'utf_32'
-  end,
 }

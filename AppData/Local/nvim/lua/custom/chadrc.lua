@@ -24,6 +24,10 @@ M.my_mapping = {
         ["<C-n>"] = {":noh <CR>", "clear highlight"},
         ["<A-o>"] = {":ClangdSwitchSourceHeader <CR>", "Switch header/source", opts = {nowait = true}},
     }
+    i =
+    {
+        ["<C-BS>"] = {"<C-W>", "delete the word"},
+    }
 }
 
 -- M.telescope = {
