@@ -29,3 +29,7 @@ set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
 
+set.listchars = { tab = "> ", space = "•", trail = "."}
+set.list = true
+set.clipboard = "unnamedplus"
+
