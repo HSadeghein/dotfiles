@@ -61,6 +61,7 @@ local ensure_packer = function()
     	run = "make install_jsregexp"
     })
 
+    use'numToStr/Comment.nvim'
 
     use { "bluz71/vim-moonfly-colors", as = "moonfly" }
     -- Automatically set up your configuration after cloning packer.nvim

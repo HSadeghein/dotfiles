@@ -9,9 +9,6 @@ vim.wo.number = true
 vim.opt.cursorline = true
 
 
-
--- vim.opt.foldmethod     = 'expr'
--- vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
 ---WORKAROUND
 vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
   group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
@@ -25,6 +22,8 @@ vim.opt.foldenable = false
 
 
 local set = vim.opt -- set options
+
+set.expandtab = true
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
@@ -32,4 +31,10 @@ set.shiftwidth = 4
 set.listchars = { tab = "> ", space = "•", trail = "."}
 set.list = true
 set.clipboard = "unnamedplus"
+
+
+set.foldlevel = 99
+set.foldmethod = "expr"
+set.foldexpr = "nvim_treesitter#foldexpr()"
+
 
