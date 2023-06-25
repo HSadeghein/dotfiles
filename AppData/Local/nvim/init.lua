@@ -3,7 +3,7 @@ require("core.plugins")
 require("core.plugin_config")
 require("core.neovide")
 
-vim.cmd [[colorscheme moonfly]]
+vim.cmd [[colorscheme everforest]]
 
 vim.wo.number = true
 vim.opt.cursorline = true

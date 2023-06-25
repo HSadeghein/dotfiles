@@ -61,7 +61,12 @@ local ensure_packer = function()
     	run = "make install_jsregexp"
     })
 
-    use'numToStr/Comment.nvim'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
     use 'eckon/treesitter-current-functions'
     use {
       'phaazon/hop.nvim',
@@ -71,7 +76,12 @@ local ensure_packer = function()
         require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
       end
     }
+
+
+
     use { "bluz71/vim-moonfly-colors", as = "moonfly" }
+    use { "jacoborus/tender.vim", as = "tender" }
+    use { "sainnhe/everforest" }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
