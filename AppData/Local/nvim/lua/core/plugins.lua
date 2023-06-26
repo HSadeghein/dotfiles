@@ -76,8 +76,15 @@ local ensure_packer = function()
         require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
       end
     }
+    use {
+      "smjonas/inc-rename.nvim",
+      config = function()
+        require("inc_rename").setup()
+      end,
+    }
 
 
+    use 'simrat39/symbols-outline.nvim'
 
     use { "bluz71/vim-moonfly-colors", as = "moonfly" }
     use { "jacoborus/tender.vim", as = "tender" }
