@@ -1,3 +1,20 @@
+
+local ft = require('Comment.ft')
+
+--1. Using method signature
+-- Set only line comment or both
+-- You can also chain the set calls
+ft.set('yaml', '#%s').set('javascript', {'//%s', '/*%s*/'})
+ft.set('hlsl', '//%s')
+
+-- 2. Metatable magic
+ft.javascript = {'//%s', '/*%s*/'}
+ft.yaml = '#%s'
+
+-- 3. Multiple filetypes
+ft({'go', 'rust'}, {'//%s', '/*%s*/'})
+ft({'toml', 'graphql'}, '#%s')
+
 require('Comment').setup(
 {
     ---Add a space b/w comment and the line
@@ -43,3 +60,7 @@ require('Comment').setup(
     post_hook = nil,
 }
 )
+local ft = require('Comment.ft')
+ft.set('hlsl', '//%s')
+
+vim.api.nvim_command('set commentstring=//%s')

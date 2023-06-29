@@ -83,7 +83,16 @@ local ensure_packer = function()
       end,
     }
 
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
+    use "sindrets/diffview.nvim" 
 
+    use 'RRethy/vim-illuminate'
     use 'simrat39/symbols-outline.nvim'
 
     use { "bluz71/vim-moonfly-colors", as = "moonfly" }
