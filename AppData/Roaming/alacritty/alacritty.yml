@@ -829,7 +829,8 @@ key_bindings:
   # - { key: Slash,  mods: Shift,         mode: Vi|~Search, action: SearchBackward          }
   # - { key: Slash,                                         action: ReceiveChar           }
   # - { key: Slash,  mods: Shift,                           action: ReceiveChar           }
-  - { key: Slash,   mods: Control,                        chars: "\x1f"           }
+  - { key: Slash,   mods: Control,                        chars: "\x1f"           } # for neovim keybinding
+  - { key: Tab,   mods: Control,                        chars: "\x1b[9;5u"           } # for neovim keybining
   #- { key: N,                           mode: Vi|~Search, action: SearchNext              }
   #- { key: N,      mods: Shift,         mode: Vi|~Search, action: SearchPrevious          }
   # Search Mode
