@@ -31,7 +31,7 @@
                 fallback()
             end
         end, {'i', 's'}),
-      ['<C-TAB>'] = cmp.mapping(function(fallback)
+      ['<S-TAB>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item(select_opts)
             else
@@ -41,8 +41,8 @@
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'vsnip' }, -- For vsnip users.
+      { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
     }, {
@@ -81,5 +81,13 @@
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['clangd'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--header-insertion=never",
+        "--pch-storage=memory",
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed"
+    }
   }
