@@ -3,7 +3,7 @@ require("core.plugins")
 require("core.plugin_config")
 require("core.neovide")
 
-vim.cmd [[colorscheme everforest]]
+vim.cmd [[colorscheme vscode]]
 
 vim.wo.number = true
 vim.opt.cursorline = true
@@ -37,5 +37,7 @@ set.foldlevel = 99
 set.foldmethod = "expr"
 set.foldexpr = "nvim_treesitter#foldexpr()"
 set.signcolumn = "yes"
+set.updatetime = 50
 
 
+vim.api.nvim_set_hl(0, "LspInlayHint", { fg = '#6A9955', bg = 'NONE' })

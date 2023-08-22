@@ -32,11 +32,13 @@ local ensure_packer = function()
     use
     {
         'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
+        run = ":TSUpdate"
+        -- run = function()
+        --     local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        --     ts_update()
+        -- end,
     }
+    use("nvim-treesitter/nvim-treesitter-context");
     use
     {
         "williamboman/mason.nvim",
@@ -49,10 +51,68 @@ local ensure_packer = function()
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
 
-    use 'justinmk/vim-sneak'
+
+    -- use {
+    --   "kevinhwang91/nvim-hlslens",
+    --   config = function()
+    --     -- require('hlslens').setup() is not required
+    --     require("scrollbar.handlers.search").setup({
+    --         override_lens = function() end,
+    --     })
+    --   end,
+    -- }
+    -- use 'karb94/neoscroll.nvim'
+    -- use "petertriho/nvim-scrollbar"
+    use 'dstein64/nvim-scrollview'
+    -- Completion
+    -- use {
+    --   "ms-jpq/coq_nvim",
+    --   branch = "coq",
+    --   event = "InsertEnter",
+    --   opt = true,
+    --   run = ":COQdeps",
+    --   -- config = function()
+    --   --   require("config.coq").setup()
+    --   -- end,
+    --   requires = {
+    --     { "ms-jpq/coq.artifacts", branch = "artifacts" },
+    --     { "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
+    --   },
+    --   disable = false,
+    -- }
+
+    -- use {
+    --   "ms-jpq/coq_nvim",
+    --   branch = "coq",
+    --   git = {
+    --       cmd = "git -c core.symlinks=true"
+    --   }
+    --
+    --   }
+    --
+    -- use {
+    --   "ms-jpq/coq.artifacts",
+    --   branch = "artifacts"
+    --   }
+    --
+    -- use {
+    --   "ms-jpq/coq.thirdparty",
+    --   branch = "3p"
+    --   }
+    -- use 'justinmk/vim-sneak'
+
+    use("mbbill/undotree")
 
     use 'nanozuki/tabby.nvim'
-
+    use {
+        'LukasPietzschmann/telescope-tabs',
+        requires = { 'nvim-telescope/telescope.nvim' },
+        config = function()
+            require'telescope-tabs'.setup{
+                -- Your custom config :^)
+            }
+        end
+    }
     use({
     	"L3MON4D3/LuaSnip",
     	-- follow latest release.
@@ -77,10 +137,20 @@ local ensure_packer = function()
       end
     }
     use {
-      "smjonas/inc-rename.nvim",
-      config = function()
-        require("inc_rename").setup()
-      end,
+      'tzachar/local-highlight.nvim',
+  }
+
+use {"smartpde/telescope-recent-files"}
+
+    -- use {
+    --   "smjonas/inc-rename.nvim",
+    --   config = function()
+    --     require("inc_rename").setup()
+    --   end,
+    -- }
+
+    use {
+        "p00f/clangd_extensions.nvim"
     }
 
     use({
@@ -93,11 +163,14 @@ local ensure_packer = function()
     -- use "sindrets/diffview.nvim" 
     use 'lvimuser/lsp-inlayhints.nvim'
     -- use 'rhysd/vim-clang-format'
-    use 'mhartington/formatter.nvim'
+    -- use 'mhartington/formatter.nvim'
 
-    use 'RRethy/vim-illuminate'
+    -- use 'RRethy/vim-illuminate'
     use 'simrat39/symbols-outline.nvim'
 
+
+    use {'Mofiqul/vscode.nvim', as = "vscode"}
+    use {"ful1e5/onedark.nvim", as = "onedark" }
     use { "bluz71/vim-moonfly-colors", as = "moonfly" }
     use { "jacoborus/tender.vim", as = "tender" }
     use { "sainnhe/everforest" }

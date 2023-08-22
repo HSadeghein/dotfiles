@@ -62,5 +62,5 @@ require('Comment').setup(
 )
 local ft = require('Comment.ft')
 ft.set('hlsl', '//%s')
-
+ft.set('json', '//%s')
 vim.api.nvim_command('set commentstring=//%s')
