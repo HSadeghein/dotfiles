@@ -14,9 +14,13 @@ vim.keymap.set('n', '<A-p>', ':SymbolsOutline<CR>')
 -- end, { expr = true })
 -- vim.keymap.set("n", "<leader>r", ":IncRename ")
 vim.keymap.set("n", "<C-s>", ":w!<CR>")
-vim.keymap.set("n", "<A-Up>", ":m-2<CR>")
-vim.keymap.set("n", "<A-Down>", ":m+<CR>")
--- vim.keymap.set("n", "<Tab>", ":tabnext<CR>")
+-- vim.keymap.set({"n", "v"}, "<A-Up>", ":m-2<CR>")
+-- vim.keymap.set({"n", "v"}, "<A-Down>", ":m+<CR>")
+vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
+
+-- switch back and forth between last used buffers
+vim.keymap.set("n", "<C-Tab>", "<C-^>")
 -- vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
 -- Map a shortcut to open the picker.
 vim.api.nvim_set_keymap("n", "<Leader><Leader>",
@@ -26,3 +30,9 @@ vim.api.nvim_set_keymap("n", "<Leader><Leader>",
 vim.keymap.set("n", "<leader>ll", function()
     require('telescope-tabs').list_tabs()
 end)
+
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")

@@ -109,6 +109,7 @@ end
     capabilities = capabilities,
     cmd = {
         "clangd",
+        "--j=8",
         "--header-insertion=never",
         "--pch-storage=memory",
         "--background-index",
@@ -116,3 +117,10 @@ end
         "--completion-style=detailed"
     }
   }
+-- local navic = require("nvim-navic")
+--
+-- require("lspconfig").clangd.setup {
+--     on_attach = function(client, bufnr)
+--         navic.attach(client, bufnr)
+--     end
+-- }

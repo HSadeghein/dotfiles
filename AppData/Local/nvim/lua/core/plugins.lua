@@ -38,7 +38,8 @@ local ensure_packer = function()
         --     ts_update()
         -- end,
     }
-    use("nvim-treesitter/nvim-treesitter-context");
+    use("nvim-treesitter/nvim-treesitter-context")
+    use "SmiteshP/nvim-navic"
     use
     {
         "williamboman/mason.nvim",
@@ -52,6 +53,9 @@ local ensure_packer = function()
     use 'hrsh7th/nvim-cmp'
 
 
+    use('theprimeagen/harpoon')
+
+    -- use('Bekaboo/dropbar.nvim')
     -- use {
     --   "kevinhwang91/nvim-hlslens",
     --   config = function()
@@ -104,6 +108,7 @@ local ensure_packer = function()
     use("mbbill/undotree")
 
     use 'nanozuki/tabby.nvim'
+    use 'romgrk/barbar.nvim'
     use {
         'LukasPietzschmann/telescope-tabs',
         requires = { 'nvim-telescope/telescope.nvim' },
