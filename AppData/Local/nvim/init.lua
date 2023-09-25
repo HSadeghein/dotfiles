@@ -3,7 +3,8 @@ require("core.plugins")
 require("core.plugin_config")
 require("core.neovide")
 
-vim.cmd [[colorscheme vscode]]
+--colorscheme kanagawa
+vim.cmd [[colorscheme kanagawa]]
 
 vim.wo.number = true
 
@@ -19,7 +20,7 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
 vim.opt.foldenable = false
 ---ENDWORKAROUND
 
-vim.api.nvim_set_hl(0, "LspInlayHint", { fg = '#6A9955', bg = 'NONE' })
+-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = '#6A9955', bg = 'NONE' })
 
 local set = vim.opt -- set options
 

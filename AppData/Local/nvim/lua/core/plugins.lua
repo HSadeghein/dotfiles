@@ -29,6 +29,9 @@ local ensure_packer = function()
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+
+
+    use 'eckon/treesitter-current-functions'
     use
     {
         'nvim-treesitter/nvim-treesitter',
@@ -68,41 +71,6 @@ local ensure_packer = function()
     -- use 'karb94/neoscroll.nvim'
     -- use "petertriho/nvim-scrollbar"
     use 'dstein64/nvim-scrollview'
-    -- Completion
-    -- use {
-    --   "ms-jpq/coq_nvim",
-    --   branch = "coq",
-    --   event = "InsertEnter",
-    --   opt = true,
-    --   run = ":COQdeps",
-    --   -- config = function()
-    --   --   require("config.coq").setup()
-    --   -- end,
-    --   requires = {
-    --     { "ms-jpq/coq.artifacts", branch = "artifacts" },
-    --     { "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
-    --   },
-    --   disable = false,
-    -- }
-
-    -- use {
-    --   "ms-jpq/coq_nvim",
-    --   branch = "coq",
-    --   git = {
-    --       cmd = "git -c core.symlinks=true"
-    --   }
-    --
-    --   }
-    --
-    -- use {
-    --   "ms-jpq/coq.artifacts",
-    --   branch = "artifacts"
-    --   }
-    --
-    -- use {
-    --   "ms-jpq/coq.thirdparty",
-    --   branch = "3p"
-    --   }
     -- use 'justinmk/vim-sneak'
 
     use("mbbill/undotree")
@@ -132,7 +100,6 @@ local ensure_packer = function()
             require('Comment').setup()
         end
     }
-    -- use 'eckon/treesitter-current-functions'
     use {
       'phaazon/hop.nvim',
       branch = 'v2', -- optional but strongly recommended
@@ -154,9 +121,9 @@ use {"smartpde/telescope-recent-files"}
     --   end,
     -- }
 
-    use {
-        "p00f/clangd_extensions.nvim"
-    }
+    -- use {
+    --     "p00f/clangd_extensions.nvim"
+    -- }
 
     use({
         "kdheepak/lazygit.nvim",
@@ -179,6 +146,7 @@ use {"smartpde/telescope-recent-files"}
     use { "bluz71/vim-moonfly-colors", as = "moonfly" }
     use { "jacoborus/tender.vim", as = "tender" }
     use { "sainnhe/everforest" }
+    use "rebelot/kanagawa.nvim"
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
