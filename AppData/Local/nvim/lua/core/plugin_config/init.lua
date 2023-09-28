@@ -18,6 +18,8 @@ require("core.plugin_config.undo")
 -- require("core.plugin_config.clangd-extensions")
 require("core.plugin_config.recent_files")
 require("core.plugin_config.harpoon")
+require("core.plugin_config.indent-blankline")
+
 require("core.plugin_config.vscode")
 -- require("core.plugin_config.scrollbar")
 -- require("core.plugin_config.hlslens")

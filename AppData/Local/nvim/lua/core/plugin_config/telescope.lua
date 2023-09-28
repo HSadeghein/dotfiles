@@ -17,10 +17,14 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fb', function()
 	builtin.buffers({sort_mru = true})
 end)
-vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>fs', function()
+    builtin.grep_string({only_sort_text = true})
+end)
 vim.keymap.set('n', '<leader>fe', builtin.diagnostics, {})
 -- vim.keymap.set('n', '<leader>fs', function() 
---         builtin.grep_string({ search = vim.fn.input("Grep > ")})
+--         builtin.grep_string({ only_sort_text = true, search = vim.fn.input("Grep > " .. vim.fn.expand('<cword>'))})
 -- end)
+
+vim.keymap.set('n', '<leader>ft', builtin.treesitter, {})
 --
 --

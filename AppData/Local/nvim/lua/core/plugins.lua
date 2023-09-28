@@ -29,7 +29,7 @@ local ensure_packer = function()
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-
+    use "lukas-reineke/indent-blankline.nvim"
 
     use 'eckon/treesitter-current-functions'
     use
