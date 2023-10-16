@@ -96,6 +96,12 @@ vim.keymap.set('n', '<leader>fe', builtin.diagnostics, {})
 --         builtin.grep_string({ only_sort_text = true, search = vim.fn.input("Grep > " .. vim.fn.expand('<cword>'))})
 -- end)
 
+vim.keymap.set('n', 'gr', function()
+  require('telescope.builtin').lsp_references({
+    fname_width = 60,
+    show_line = false,
+  })
+end, {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>ft', builtin.treesitter, {})
 --
 --
