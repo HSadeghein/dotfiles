@@ -11,9 +11,9 @@ end
   cmp.setup({
     sorting = {
         comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
             cmp.config.compare.recently_used,
+            cmp.config.compare.exact,
+            cmp.config.compare.offset,
             -- require("clangd_extensions.cmp_scores"),
             cmp.config.compare.kind,
             cmp.config.compare.sort_text,
@@ -21,6 +21,7 @@ end
             cmp.config.compare.order,
         },
     },
+
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -34,6 +35,7 @@ end
       -- completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
     },
+    -- [[ mapping ]] = require("core.mappings").cmp(),
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -45,8 +47,8 @@ end
             cmp.select_next_item()
           -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
           -- they way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
+          -- elseif luasnip.expand_or_locally_jumpable() then
+          --   luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
           else
@@ -57,8 +59,8 @@ end
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
+          -- elseif luasnip.jumpable(-1) then
+          --   luasnip.jump(-1)
           else
             fallback()
           end
@@ -66,12 +68,14 @@ end
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
+      { name = 'nvim_lsp_signature_help'},
       -- { name = 'vsnip' }, -- For vsnip users.
       { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
-    }, {
       { name = 'buffer' },
+      { name = "nvim_lua" },
+      { name = "path"},
     })
   })
 

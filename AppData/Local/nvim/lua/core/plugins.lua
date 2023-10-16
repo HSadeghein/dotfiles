@@ -29,6 +29,15 @@ local ensure_packer = function()
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    use {"smartpde/telescope-recent-files"}
+    use {"nvim-telescope/telescope-fzy-native.nvim"}
+
+    use { "ibhagwan/fzf-lua",
+      -- optional for icon support
+      requires = { "nvim-tree/nvim-web-devicons" }
+    }
+
     use "lukas-reineke/indent-blankline.nvim"
 
     use 'eckon/treesitter-current-functions'
@@ -54,9 +63,10 @@ local ensure_packer = function()
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
 
 
-    use('theprimeagen/harpoon')
+    use('ThePrimeagen/harpoon')
 
     -- use('Bekaboo/dropbar.nvim')
     -- use {
@@ -87,12 +97,16 @@ local ensure_packer = function()
         end
     }
     use({
-    	"L3MON4D3/LuaSnip",
-    	-- follow latest release.
-    	tag = "v<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    	-- install jsregexp (optional!:).
-    	run = "make install_jsregexp"
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp"
     })
+    -- use 'hrsh7th/cmp-vsnip'
+    -- use 'hrsh7th/vim-vsnip'
+     -- use 'dcampos/nvim-snippy'
+     -- use 'dcampos/cmp-snippy'
 
     use {
         'numToStr/Comment.nvim',
@@ -112,7 +126,6 @@ local ensure_packer = function()
       'tzachar/local-highlight.nvim',
   }
 
-use {"smartpde/telescope-recent-files"}
 
     -- use {
     --   "smjonas/inc-rename.nvim",

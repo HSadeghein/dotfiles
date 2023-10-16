@@ -23,13 +23,13 @@ vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("n", "<C-Tab>", "<C-^>")
 -- vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
 -- Map a shortcut to open the picker.
-vim.api.nvim_set_keymap("n", "<Leader><Leader>",
-  [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
-  {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<Leader><Leader>",
+--   [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
+--   {noremap = true, silent = true})
 
-vim.keymap.set("n", "<leader>ll", function()
-    require('telescope-tabs').list_tabs()
-end)
+-- vim.keymap.set("n", "<leader>ll", function()
+--     require('telescope-tabs').list_tabs()
+-- end)
 
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

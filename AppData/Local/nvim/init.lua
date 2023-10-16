@@ -1,55 +1,22 @@
 require("core.keymaps")
+require("core.options")
 require("core.plugins")
 require("core.plugin_config")
 require("core.neovide")
 
---colorscheme kanagawa
-vim.cmd [[colorscheme kanagawa]]
 
-vim.wo.number = true
-
-
----WORKAROUND
-vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
-  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+-- luasnip bug while using Tab
+vim.api.nvim_create_autocmd('ModeChanged', {
+  pattern = '*',
   callback = function()
-    vim.opt.foldmethod     = 'expr'
-    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+    if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+        and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+        and not require('luasnip').session.jump_active
+    then
+      require('luasnip').unlink_current()
+    end
   end
 })
-vim.opt.foldenable = false
----ENDWORKAROUND
 
--- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = '#6A9955', bg = 'NONE' })
-
-local set = vim.opt -- set options
-
-set.expandtab = true
-set.tabstop = 4
-set.softtabstop = 4
-set.shiftwidth = 4
-set.smartindent = true
-
-set.listchars = { tab = "> ", space = "•", trail = "."}
-set.list = true
-set.clipboard = "unnamedplus"
-
-set.cursorline = true
-set.foldlevel = 99
-set.foldmethod = "expr"
-set.foldexpr = "nvim_treesitter#foldexpr()"
-set.signcolumn = "yes"
-set.updatetime = 50
-
-set.swapfile = false
-set.backup = false
-set.undofile = true
-
-set.hlsearch = true
-set.incsearch = true
-
-set.termguicolors = true
-
-set.scrolloff = 8
--- set.colorcolumn = "80"
-
+--colorscheme kanagawa
+vim.cmd [[colorscheme kanagawa]]
