@@ -119,7 +119,8 @@ end
         "--background-index",
         "--clang-tidy",
         "--completion-style=detailed"
-    }
+    },
+
   }
 -- local navic = require("nvim-navic")
 --

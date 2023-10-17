@@ -71,10 +71,10 @@ require("telescope").setup {
       -- This extension's options, see below.
       only_cwd = true
     },
-    fzy_native = {
-        override_generic_sorter = false,
-        override_file_sorter = true,
-    }
+    -- fzy_native = {
+    --     override_generic_sorter = false,
+    --     override_file_sorter = true,
+    -- }
   }
 }
 require('telescope').load_extension('fzf')
