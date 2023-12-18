@@ -23,6 +23,7 @@ require("core.plugin_config.local-highlight")
 require("core.plugin_config.undo")
 -- require("core.plugin_config.clangd-extensions")
 require("core.plugin_config.harpoon")
+require("core.plugin_config.refactoring")
 require("core.plugin_config.indent-blankline")
 
 require("core.plugin_config.vscode")

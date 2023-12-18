@@ -21,6 +21,8 @@ vim.opt.foldenable = false
 
 local set = vim.opt -- set options
 
+-- set.mouse = a
+set.wrap = false
 set.expandtab = true
 set.tabstop = 4
 set.softtabstop = 4
@@ -47,7 +49,9 @@ set.incsearch = true
 
 set.termguicolors = true
 
+
 set.scrolloff = 8
 -- set.colorcolumn = "80"
 --
 --
+

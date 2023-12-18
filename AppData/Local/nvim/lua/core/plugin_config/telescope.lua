@@ -62,8 +62,19 @@ require("telescope").setup {
             "%.basic_geometry",
             "%.so",
             "%.evamodelstore",
+            "SPIRV-Cross/"
 
-      }
+      },
+      vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--hidden',
+        },
     -- Your regular Telescope's options.
   },
   extensions = {
