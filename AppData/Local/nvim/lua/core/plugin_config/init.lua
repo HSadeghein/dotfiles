@@ -1,3 +1,6 @@
+local M = {}
+M.os = vim.loop.os_uname().sysname
+
 require("core.plugin_config.nvim-tree")
 require("core.plugin_config.scrollview")
 require("core.plugin_config.barbar")
@@ -5,8 +8,10 @@ require("core.plugin_config.mason")
 require("core.plugin_config.lsp_config")
 require("core.plugin_config.cmp")
 -- require("core.plugin_config.coq_nvim")
-if package.config:sub(1,1) == '\\'
+-- if package.config:sub(1,1) == '\\'
+if M.os ~= "Linux"
     then
+        -- require("core.plugin_config.snap")
         require("core.plugin_config.telescope")
         require("core.plugin_config.recent_files")
     else

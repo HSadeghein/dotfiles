@@ -26,12 +26,14 @@ local ensure_packer = function()
     use "nvim-lua/plenary.nvim"
     use 
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
     use {"smartpde/telescope-recent-files"}
     use {"nvim-telescope/telescope-fzy-native.nvim"}
+
+    use { 'camspiers/snap' }
 
     use { "ibhagwan/fzf-lua",
       -- optional for icon support
@@ -99,7 +101,7 @@ local ensure_packer = function()
     use({
         "L3MON4D3/LuaSnip",
         -- follow latest release.
-        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        tag = "v2.1.0", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!:).
         run = "make install_jsregexp"
     })
