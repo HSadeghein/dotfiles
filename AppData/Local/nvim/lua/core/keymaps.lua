@@ -20,7 +20,7 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 
 -- switch back and forth between last used buffers
-vim.keymap.set("n", "<C-Tab>", "<C-^>")
+vim.keymap.set({"n", "i"}, "<C-Tab>", "<C-^>")
 -- vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
 -- Map a shortcut to open the picker.
 -- vim.api.nvim_set_keymap("n", "<Leader><Leader>",

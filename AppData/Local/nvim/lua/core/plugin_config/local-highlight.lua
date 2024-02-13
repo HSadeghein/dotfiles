@@ -3,5 +3,6 @@ require('local-highlight').setup({
     -- OR attach to every filetype except:
     disable_file_types = {'tex'},
     hlgroup = 'Search',
-    cw_hlgroup = nil
+    cw_hlgroup = 'Search',
+    insert_mode = true,
 })

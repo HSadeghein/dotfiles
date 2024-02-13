@@ -134,18 +134,18 @@ font:
     family: CaskaydiaCove Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    # style: Regular
 
   # Bold font face
-  bold:
+  # bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: CaskaydiaCove Nerd Font
+    # family: CaskaydiaCove Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    # style: Bold
 
   # Italic font face
   #italic:
@@ -452,8 +452,8 @@ cursor:
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
+shell:
+ program: C:\Windows\System32\cmd.exe
 #  args:
 #    - --login
 

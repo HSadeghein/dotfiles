@@ -123,54 +123,95 @@ end
 
 local telescope_config = {
   defaults = {
-    preview = {
-        treesitter = false
-    },
-    buffer_previewer_maker = buffer_previewer_maker,
-    vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-      "--hidden",
-      "--glob=!.git/",
-    },
-    prompt_prefix = "   ",
-    selection_caret = "󰋇 ",
-  },
-  pickers = {
-    find_files = {
-      find_command = { finder, "--type=file", "--follow", "--exclude=.git" },
-    },
-  },
-  extensions = {},
-}
+      preview = {
+          treesitter = false
+      },
+      file_ignore_patterns = {
+          "vendor/*",
+            "%.lock",
+            "__pycache__/*",
+            "%.sqlite3",
+            "%.ipynb",
+            "node_modules/*",
+            "%.jpg",
+            "%.jpeg",
+            "%.png",
+            "%.svg",
+            "%.otf",
+            "%.ttf",
+            ".git/",
+            "%.webp",
+            ".dart_tool/",
+            ".github/",
+            ".gradle/",
+            ".idea/",
+            ".settings/",
+            ".vscode/",
+            "__pycache__/",
+            "build/",
+            "env/",
+            "gradle/",
+            "node_modules/",
+            "target/",
+            "%.pdb",
+            "%.dll",
+            "%.class",
+            "%.exe",
+            "%.cache",
+            "%.ico",
+            "%.pdf",
+            "%.dylib",
+            "%.jar",
+            "%.docx",
+            "%.met",
+            "smalljre_*/*",
+            ".vale/",
+            "%.burp",
+            "%.mp4",
+            "%.mkv",
+            "%.rar",
+            "%.zip",
+            "%.7z",
+            "%.tar",
+            "%.bz2",
+            "%.epub",
+            "%.flac",
+            "%.tar.gz",
+            "%.storyboard",
+            "%.plist",
+            "%.xcworkspacedata",
+            "%.vcproj.%",
+            "build/*",
+            "%.basic_geometry",
+            "%.so",
+            "%.evamodelstore",
+            "SPIRV-Cross/"
 
-if require("core.utils").is_plugin_installed("telescope-fzf-native.nvim") then
-  telescope_config.extensions["fzf"] = {
-    fuzzy = true,
-    override_generic_sorter = true,
-    override_file_sorter = true,
-    case_mode = "smart_case",
+      },
+      vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--hidden',
+        },
+    -- Your regular Telescope's options.
+  },
+  extensions = {
+    recent_files = {
+      -- This extension's options, see below.
+      only_cwd = true
+    },
+    -- fzy_native = {
+    --     override_generic_sorter = false,
+    --     override_file_sorter = true,
+    -- }
   }
-  telescope_setup.load_extension("fzf")
-end
-
-if require("core.utils").is_plugin_installed("telescope_find_directories") then
-  telescope_setup.load_extension("find_directories")
-end
-
--- local config = require("user_settings")
--- if config.telescope then
---   for k, v in pairs(config.telescope) do
---     telescope_config[k] = v
---   end
--- end
-
-telescope_setup.setup(telescope_config)
+}
+require('telescope').load_extension('fzf')
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

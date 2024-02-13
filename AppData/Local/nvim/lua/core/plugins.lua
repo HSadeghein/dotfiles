@@ -69,6 +69,13 @@ local ensure_packer = function()
 
 
     use('ThePrimeagen/harpoon')
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            {"nvim-treesitter/nvim-treesitter"}
+        }
+    }
 
     -- use('Bekaboo/dropbar.nvim')
     -- use {
@@ -101,7 +108,7 @@ local ensure_packer = function()
     use({
         "L3MON4D3/LuaSnip",
         -- follow latest release.
-        tag = "v2.1.0", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        tag = "v2.1.1", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!:).
         run = "make install_jsregexp"
     })

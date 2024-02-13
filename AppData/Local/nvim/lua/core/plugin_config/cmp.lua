@@ -4,6 +4,30 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+
+local ELLIPSIS_CHAR = '…'
+local MAX_LABEL_WIDTH = 25
+local MAX_KIND_WIDTH = 14
+
+local get_ws = function (max, len)
+  return (" "):rep(max - len)
+end
+
+local format = function(_, item)
+  local content = item.abbr
+  -- local kind_symbol = symbols[item.kind]
+  -- item.kind = kind_symbol .. get_ws(MAX_KIND_WIDTH, #kind_symbol)
+
+  if #content > MAX_LABEL_WIDTH then
+    item.abbr = vim.fn.strcharpart(content, 0, MAX_LABEL_WIDTH) .. ELLIPSIS_CHAR
+  else
+    item.abbr = content .. get_ws(MAX_LABEL_WIDTH, #content)
+  end
+
+  return item
+end
+
+
   local luasnip = require("luasnip")
   -- Set up nvim-cmp.
   local cmp = require'cmp'
@@ -12,14 +36,18 @@ end
     sorting = {
         comparators = {
             cmp.config.compare.recently_used,
-            cmp.config.compare.exact,
-            cmp.config.compare.offset,
+            -- cmp.config.compare.kind,
+            -- cmp.config.compare.exact,
+            -- cmp.config.compare.offset,
             -- require("clangd_extensions.cmp_scores"),
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
+            -- cmp.config.compare.sort_text,
+            -- cmp.config.compare.length,
+            -- cmp.config.compare.order,
         },
+    },
+
+    formatting = {
+        format = format
     },
 
     snippet = {
