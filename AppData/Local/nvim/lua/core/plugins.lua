@@ -65,8 +65,11 @@ local ensure_packer = function()
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
 
-
-    use('ThePrimeagen/harpoon')
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
     use {
         "ThePrimeagen/refactoring.nvim",
         requires = {

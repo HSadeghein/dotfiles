@@ -62,7 +62,9 @@ require("telescope").setup {
             "%.basic_geometry",
             "%.so",
             "%.evamodelstore",
-            "SPIRV-Cross/"
+            "SPIRV%-Cross/.*",
+            "boost.*/.*",
+            "external/"
 
       },
       vimgrep_arguments = {
