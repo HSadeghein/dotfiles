@@ -33,6 +33,8 @@ local ensure_packer = function()
     use {"smartpde/telescope-recent-files"}
     use {"nvim-telescope/telescope-fzy-native.nvim"}
 
+    use { 'camspiers/snap' }
+
     use { "ibhagwan/fzf-lua",
       -- optional for icon support
       requires = { "nvim-tree/nvim-web-devicons" }
