@@ -148,8 +148,15 @@ end
         "--clang-tidy",
         "--completion-style=detailed"
     },
+    -- filetypes = 
+    -- {
+    --     "c",
+    --     "cpp",
+    --     "hlsl"
+    -- }
 
   }
+require('lspconfig')['slangd'].setup{}
 -- local navic = require("nvim-navic")
 --
 -- require("lspconfig").clangd.setup {

@@ -26,14 +26,15 @@ require('Comment').setup(
     ---LHS of toggle mappings in NORMAL mode
     toggler = {
         ---Line-comment toggle keymap
-        line = '<C-_>',
+        -- line = '<C-_>', -- for other terminals like Alachrity
+        line = '<C-/>', -- for other terminals like Alachrity
         ---Block-comment toggle keymap
         block = 'gcc',
     },
     ---LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
         ---Line-comment keymap
-        line = '<C-_>',
+        line = '<C-/>',
         ---Block-comment keymap
         block = 'gcc',
     },
