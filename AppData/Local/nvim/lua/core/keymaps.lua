@@ -32,6 +32,10 @@ vim.keymap.set({"n", "i"}, "<C-Tab>", "<C-^>")
 --     require('telescope-tabs').list_tabs()
 -- end)
 
+vim.keymap.set("c", "<CR>", function()
+  if vim.fn.pumvisible() == 1 then return '<C-y>' end
+  return '<CR>'
+  end, { expr = true })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
