@@ -156,6 +156,21 @@ require('lazy').setup(
   },
 
 
+  {
+    "Pocco81/auto-save.nvim",
+    config = function()
+         require("auto-save").setup {
+            condition = function(buf)
+                if vim.bo[buf].filetype == "harpoon" then
+                    return false
+                end
+            end
+                -- your config goes here
+            -- or just leave it empty :)
+         }
+    end,
+  },
+
     --  {
     --   "smjonas/inc-rename.nvim",
     --   config = function()

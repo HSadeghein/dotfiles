@@ -9,14 +9,14 @@ require("core.plugin_config.lsp_config")
 require("core.plugin_config.cmp")
 -- require("core.plugin_config.coq_nvim")
 -- if package.config:sub(1,1) == '\\'
-if M.os ~= "Linux"
-    then
+--if M.os ~= "Linux" or M.os ~= "Windows"
+--    then
         -- require("core.plugin_config.snap")
-        require("core.plugin_config.telescope")
-        require("core.plugin_config.recent_files")
-    else
+--        require("core.plugin_config.telescope")
+--        require("core.plugin_config.recent_files")
+--    else
         require("core.plugin_config.fzf-lua")
-end
+--end
 -- require("core.plugin_config.tabby")
 require("core.plugin_config.comment")
 require("core.plugin_config.treesitter")
