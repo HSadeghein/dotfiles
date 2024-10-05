@@ -1,64 +1,65 @@
 local actions = require('fzf-lua.actions')
 
-require('fzf-lua').setup({
-  winopts = {
-    hl = {
-      border = 'FloatBorder',
-    },
-  },
-  preview_layout = 'flex',
-  flip_columns = 150,
-  fzf_opts = {
-    ['--border'] = 'none',
-  },
-  previewers = {
-    builtin = {
-      scrollbar = false,
-    },
-  },
-  grep = {
-    actions = {
-      ['default'] = actions.file_edit_or_qf,
-      ['ctrl-q'] = actions.file_sel_to_qf,
-    },
-  },
-  buffers = {
-    git_icons = false,
-    actions = {
-      ['ctrl-w'] = actions.buf_del,
-      ['ctrl-q'] = actions.file_sel_to_qf,
-    },
-  },
-  files = {
-    fd_opts = [[--color never --type f --hidden --follow --strip-cwd-prefix]],
-    git_icons = false,
-    actions = {
-      ['default'] = actions.file_edit,
-      ['ctrl-q'] = actions.file_sel_to_qf,
-    },
-  },
-  quickfix = {
-    git_icons = false,
-    actions = {
-      ['default'] = actions.file_edit_or_qf,
-      ['ctrl-q'] = actions.file_sel_to_qf,
-    },
-  },
-  lsp = {
-    async_or_timeout = false,
-    severity = 'Warning',
-    -- icons = {
-    --   ['Error'] = { icon = vim.g.diagnostic_icons.Error, color = 'red' },
-    --   ['Warning'] = { icon = vim.g.diagnostic_icons.Warning, color = 'yellow' },
-    --   ['Information'] = { icon = vim.g.diagnostic_icons.Information, color = 'blue' },
-    --   ['Hint'] = { icon = vim.g.diagnostic_icons.Hint, color = 'blue' },
-    -- },
-    actions = {
-      ['default'] = actions.file_edit_or_qf,
-      ['ctrl-q'] = actions.file_sel_to_qf,
-    },
-  },
-})
+require('fzf-lua').setup({'fzf-native'})
+-- require('fzf-lua').setup({
+--   winopts = {
+--     hl = {
+--       border = 'FloatBorder',
+--     },
+--   },
+--   preview_layout = 'flex',
+--   flip_columns = 150,
+--   fzf_opts = {
+--     ['--border'] = 'none',
+--   },
+--   previewers = {
+--     builtin = {
+--       scrollbar = false,
+--     },
+--   },
+--   grep = {
+--     actions = {
+--       ['default'] = actions.file_edit_or_qf,
+--       ['ctrl-q'] = actions.file_sel_to_qf,
+--     },
+--   },
+--   buffers = {
+--     git_icons = false,
+--     actions = {
+--       ['ctrl-w'] = actions.buf_del,
+--       ['ctrl-q'] = actions.file_sel_to_qf,
+--     },
+--   },
+--   files = {
+--     fd_opts = [[--color never --type f --hidden --follow --strip-cwd-prefix]],
+--     git_icons = false,
+--     actions = {
+--       ['default'] = actions.file_edit,
+--       ['ctrl-q'] = actions.file_sel_to_qf,
+--     },
+--   },
+--   quickfix = {
+--     git_icons = false,
+--     actions = {
+--       ['default'] = actions.file_edit_or_qf,
+--       ['ctrl-q'] = actions.file_sel_to_qf,
+--     },
+--   },
+--   lsp = {
+--     async_or_timeout = false,
+--     severity = 'Warning',
+--     -- icons = {
+--     --   ['Error'] = { icon = vim.g.diagnostic_icons.Error, color = 'red' },
+--     --   ['Warning'] = { icon = vim.g.diagnostic_icons.Warning, color = 'yellow' },
+--     --   ['Information'] = { icon = vim.g.diagnostic_icons.Information, color = 'blue' },
+--     --   ['Hint'] = { icon = vim.g.diagnostic_icons.Hint, color = 'blue' },
+--     -- },
+--     actions = {
+--       ['default'] = actions.file_edit_or_qf,
+--       ['ctrl-q'] = actions.file_sel_to_qf,
+--     },
+--   },
+-- })
 
 vim.keymap.set("n", "<leader>ff",
   "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })

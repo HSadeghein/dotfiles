@@ -6,6 +6,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.wo.number = true
 
 
+
 ---WORKAROUND
 vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
   group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
@@ -19,7 +20,7 @@ vim.opt.foldenable = false
 
 -- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = '#6A9955', bg = 'NONE' })
 
-local set = vim.opt -- set options
+local set = vim.opt_local -- set options
 
 -- set.mouse = a
 set.wrap = false
@@ -38,7 +39,7 @@ set.foldlevel = 99
 set.foldmethod = "expr"
 set.foldexpr = "nvim_treesitter#foldexpr()"
 set.signcolumn = "yes"
-set.updatetime = 50
+set.updatetime = 30
 
 set.swapfile = false
 set.backup = false
@@ -55,3 +56,11 @@ set.scrolloff = 8
 --
 --
 
+
+vim.filetype.add(
+{
+    extensions =
+    {
+        hlsl = 'slang', -- make .hlsl files to have hlsl filetype so treesitter gives it proper highlight
+    }
+})

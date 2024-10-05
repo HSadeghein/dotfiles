@@ -1,9 +1,8 @@
 require("core.keymaps")
-require("core.options")
 require("core.plugins")
 require("core.plugin_config")
 require("core.neovide")
-
+require("core.options")
 
 -- luasnip bug while using Tab
 -- vim.api.nvim_create_autocmd('ModeChanged', {
@@ -19,4 +18,4 @@ require("core.neovide")
 -- })
 
 --colorscheme kanagawa
-vim.cmd [[colorscheme moonfly]]
+vim.cmd [[colorscheme default]]
