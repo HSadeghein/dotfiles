@@ -1,0 +1,68 @@
+// Zed keymap
+
+//
+
+// For information on binding keys, see the Zed
+
+// documentation: https://zed.dev/docs/key-bindings
+
+//
+
+// To see the default key bindings run `zed: open default keymap`
+
+// from the command palette.
+
+[
+  {
+    "context": "Workspace",
+
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+
+  {
+    "context": "Editor",
+
+    "bindings": {
+      // "tab": "menu::SelectNext"
+      "space f f": "file_finder::Toggle",
+      "g r": "editor::FindAllReferences",
+      "space g r": "editor::FindAllReferences",
+      "space q": "pane::CloseActiveItem",
+      "space f s": "pane::DeploySearch"
+
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+
+  {
+    "context": "edit_prediction",
+    "bindings": {
+      // "alt-tab": "editor::AcceptEditPrediction",
+      // "alt-l": "editor::AcceptEditPrediction",
+      "right": "editor::AcceptEditPrediction",
+      "tab": "editor::Tab"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift tab": "editor::ContextMenuPrev",
+      "ctrl-p": "editor::ContextMenuPrev",
+      "up": "editor::ContextMenuPrev",
+      "ctrl-n": "editor::ContextMenuNext",
+      "down": "editor::ContextMenuNext",
+      "pageup": "editor::ContextMenuFirst",
+      "pagedown": "editor::ContextMenuLast"
+    }
+  }
+  // {
+  //   "context": "Editor && showing_completions",
+  //   "bindings": {
+  //     // "enter": "editor::ConfirmCompletion",
+  //     "tab": "editor::SelectNext"
+  //   }
+  // }
+]
