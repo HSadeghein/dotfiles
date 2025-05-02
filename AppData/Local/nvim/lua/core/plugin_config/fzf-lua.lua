@@ -1,65 +1,41 @@
-local actions = require('fzf-lua.actions')
+-- local actions = require('fzf-lua.actions')
 
-require('fzf-lua').setup({'fzf-native'})
--- require('fzf-lua').setup({
---   winopts = {
---     hl = {
---       border = 'FloatBorder',
---     },
---   },
---   preview_layout = 'flex',
---   flip_columns = 150,
---   fzf_opts = {
---     ['--border'] = 'none',
---   },
+-- require('fzf-lua').setup({"telescope",winopts={preview={default="bat"}}})
+-- require('fzf-lua').setup({'fzf-native'})
+
+local actions = require("fzf-lua").actions
+require('fzf-lua').setup({
+    fzf_colors = true,
+    hls = 
+    {
+        border = "FloatBorder",
+        -- cursor       = 'Error',     -- cursor highlight
+        cursorline   = 'Visual', -- cursor line highlight
+    },
+    -- buffers = {
+    --     prompt            = 'Buffers❯ ',
+    --     file_icons        = true,         -- show file icons (true|"devicons"|"mini")?
+    --     color_icons       = true,         -- colorize file|git icons
+    --     sort_lastused     = true,         -- sort buffers() by last used
+    --     show_unloaded     = true,         -- show unloaded buffers
+    --     cwd_only          = false,        -- buffers for the cwd only
+    --     cwd               = nil,          -- buffers list for a given dir
+    --     actions = {
+    --         -- actions inherit from 'actions.files' and merge
+    --         -- by supplying a table of functions we're telling
+    --         -- fzf-lua to not close the fzf window, this way we
+    --         -- can resume the buffers picker on the same window
+    --         -- eliminating an otherwise unaesthetic win "flash"
+    --         ["alt-c"]      = { fn = actions.buf_del, reload = true },
+    --     }
+    -- }
 --   previewers = {
---     builtin = {
---       scrollbar = false,
---     },
+--       builtin = {
+--         hl_cursor       = 'Error',     -- cursor highlight
+--         hl_cursorline   = 'IncSearch', -- cursor line highlight
+--       },
 --   },
---   grep = {
---     actions = {
---       ['default'] = actions.file_edit_or_qf,
---       ['ctrl-q'] = actions.file_sel_to_qf,
---     },
---   },
---   buffers = {
---     git_icons = false,
---     actions = {
---       ['ctrl-w'] = actions.buf_del,
---       ['ctrl-q'] = actions.file_sel_to_qf,
---     },
---   },
---   files = {
---     fd_opts = [[--color never --type f --hidden --follow --strip-cwd-prefix]],
---     git_icons = false,
---     actions = {
---       ['default'] = actions.file_edit,
---       ['ctrl-q'] = actions.file_sel_to_qf,
---     },
---   },
---   quickfix = {
---     git_icons = false,
---     actions = {
---       ['default'] = actions.file_edit_or_qf,
---       ['ctrl-q'] = actions.file_sel_to_qf,
---     },
---   },
---   lsp = {
---     async_or_timeout = false,
---     severity = 'Warning',
---     -- icons = {
---     --   ['Error'] = { icon = vim.g.diagnostic_icons.Error, color = 'red' },
---     --   ['Warning'] = { icon = vim.g.diagnostic_icons.Warning, color = 'yellow' },
---     --   ['Information'] = { icon = vim.g.diagnostic_icons.Information, color = 'blue' },
---     --   ['Hint'] = { icon = vim.g.diagnostic_icons.Hint, color = 'blue' },
---     -- },
---     actions = {
---       ['default'] = actions.file_edit_or_qf,
---       ['ctrl-q'] = actions.file_sel_to_qf,
---     },
---   },
--- })
+})
 
 vim.keymap.set("n", "<leader>ff",
   "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })

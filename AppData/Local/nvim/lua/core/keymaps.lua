@@ -20,6 +20,7 @@ vim.keymap.set("i", "<C-s>", "<C-\\><C-o>:w<CR>")
 vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 
+vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
 -- switch back and forth between last used buffers
 vim.keymap.set({"n", "i"}, "<C-Tab>", "<C-^>")
 -- vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")
@@ -32,6 +33,9 @@ vim.keymap.set({"n", "i"}, "<C-Tab>", "<C-^>")
 --     require('telescope-tabs').list_tabs()
 -- end)
 
+vim.keymap.set({"n","v"}, ">", ">gv", { noremap = true, silent = true })
+vim.keymap.set({"n","v"}, "<", "<gv", { noremap = true, silent = true })
+
 vim.keymap.set("c", "<CR>", function()
   if vim.fn.pumvisible() == 1 then return '<C-y>' end
   return '<CR>'
@@ -43,6 +47,11 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 
+-- Perforce
+vim.keymap.set("n", "<leader>pa", function() require("p4").P4edit() end)
+
+
+
+
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-

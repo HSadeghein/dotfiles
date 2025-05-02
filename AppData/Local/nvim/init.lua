@@ -1,21 +1,32 @@
-require("core.keymaps")
-require("core.plugins")
-require("core.plugin_config")
-require("core.neovide")
-require("core.options")
+if vim.g.vscode then
+    -- VSCode extension
+else
 
--- luasnip bug while using Tab
--- vim.api.nvim_create_autocmd('ModeChanged', {
---   pattern = '*',
---   callback = function()
---     if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
---         and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
---         and not require('luasnip').session.jump_active
---     then
---       require('luasnip').unlink_current()
---     end
---   end
--- })
+    -- ordinary Neovim
+    require("core.keymaps")
+    require("core.plugins")
+    require("core.plugin_config")
+    require("core.neovide")
+    require("core.options")
+    
+    vim.lsp.enable({'clangd'})
 
---colorscheme kanagawa
-vim.cmd [[colorscheme default]]
+    
+    -- luasnip bug while using Tab
+    -- vim.api.nvim_create_autocmd('ModeChanged', {
+    --   pattern = '*',
+    --   callback = function()
+    --     if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+    --         and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+    --         and not require('luasnip').session.jump_active
+    --     then
+    --       require('luasnip').unlink_current()
+    --     end
+    --   end
+    -- })
+    
+    --colorscheme kanagawa
+    vim.cmd [[colorscheme bamboo]]
+end
+
+
