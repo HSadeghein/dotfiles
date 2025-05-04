@@ -1,17 +1,14 @@
 if vim.g.vscode then
     -- VSCode extension
 else
-
     -- ordinary Neovim
-    require("core.keymaps")
-    require("core.plugins")
-    require("core.plugin_config")
-    require("core.neovide")
-    require("core.options")
-    
-    vim.lsp.enable({'clangd'})
+    require("config.options")
+    require("config.lazy")
+    require("config.keymaps")
+    require("config.neovide")
+    -- require("config.lsp-setup")
 
-    
+
     -- luasnip bug while using Tab
     -- vim.api.nvim_create_autocmd('ModeChanged', {
     --   pattern = '*',
@@ -24,9 +21,7 @@ else
     --     end
     --   end
     -- })
-    
+
     --colorscheme kanagawa
     vim.cmd [[colorscheme bamboo]]
 end
-
-
