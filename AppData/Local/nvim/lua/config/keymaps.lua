@@ -18,7 +18,6 @@ vim.keymap.set("i", "<C-s>", "<C-\\><C-o>:w<CR>")
 vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 
-vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
 -- switch back and forth between last used buffers
 vim.keymap.set({ "n", "i" }, "<C-Tab>", "<C-^>")
 -- vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>")

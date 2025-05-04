@@ -1,6 +1,5 @@
-
 -- Add this at the top of your file
-vim.g.mapleader = " "  -- Sets leader key to space
+vim.g.mapleader = " " -- Sets leader key to space
 vim.g.maplocalleader = " "
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -38,7 +37,7 @@ set.list = true
 set.clipboard = "unnamedplus"
 
 set.cursorline = true
-set.signcolumn = "yes"
+set.signcolumn = "yes:1"
 set.updatetime = 10
 
 set.swapfile = false

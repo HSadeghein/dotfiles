@@ -22,5 +22,6 @@ return {
         { "<leader>ca",       "<cmd>lua require('fzf-lua').lsp_code_actions()<CR>",      mode = "n", silent = true },
         { "<leader>fe",       "<cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", mode = "n", silent = true },
         { "<leader><leader>", "<cmd>lua require('fzf-lua').oldfiles()<CR>",              mode = "n", silent = true },
+        { "<leader>fb",       "<cmd>lua require('fzf-lua').buffers()<CR>",               mode = "n", silent = true }
     },
 }
