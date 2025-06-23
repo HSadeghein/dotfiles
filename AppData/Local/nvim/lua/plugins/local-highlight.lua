@@ -2,7 +2,7 @@ return {
     "tzachar/local-highlight.nvim",
     config = function()
         require('local-highlight').setup({
-            file_types = { 'python', 'cpp', 'h', 'hlsl' },
+            file_types = { 'python', 'cpp', 'h', 'hlsl', 'slang' },
             disable_file_types = { 'tex' },
             hlgroup = 'LocalHighlight',
             cw_hlgroup = nil,

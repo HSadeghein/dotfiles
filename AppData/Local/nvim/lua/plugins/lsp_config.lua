@@ -204,6 +204,7 @@ return {
             dynamicRegistration = false,
             lineFoldingOnly = true
         }
+        -- capabilities.textDocument.foldingRange = nil
 
         -- Enable the following language servers
         --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -276,6 +277,15 @@ return {
                     },
                 },
             },
+            slang = {
+                cmd = { 'slangd.exe' },
+                filetypes = { 'hlsl', 'shaderslang', "slang" },
+                root_dir = function(fname)
+                    return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+                end,
+                single_file_support = true,
+            }
+
         }
 
         -- Define the missing functions for clangd

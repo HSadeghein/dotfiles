@@ -3,9 +3,10 @@ if vim.g.vscode then
 else
     -- ordinary Neovim
     require("config.options")
-    require("config.lazy")
+    require("core.lazy")
     require("config.keymaps")
     require("config.neovide")
+    require("config.autocmds")
     -- require("config.lsp-setup")
 
 
@@ -23,5 +24,5 @@ else
     -- })
 
     --colorscheme kanagawa
-    vim.cmd [[colorscheme bamboo]]
+    vim.cmd [[colorscheme rose-pine]]
 end

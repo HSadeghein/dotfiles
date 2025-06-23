@@ -1,5 +1,6 @@
+
 vim.keymap.set('n', '<leader>n', ':noh<CR>')
-vim.keymap.set('n', '<A-o>', ':ClangdSwitchSourceHeader<CR>')
+vim.keymap.set('n', '<A-o>', ':LspClangdSwitchSourceHeader<CR>')
 vim.keymap.set('n', '<leader>o', ':ClangdSwitchSourceHeader<CR>')
 vim.keymap.set({ 'n' }, '<leader>q', ':x!<CR>')
 vim.keymap.set('n', '<A-]>', ':vertical resize +5<CR>')
@@ -33,10 +34,6 @@ vim.keymap.set({ "n", "i" }, "<C-Tab>", "<C-^>")
 vim.keymap.set({ "n", "v" }, ">", ">gv", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<", "<gv", { noremap = true, silent = true })
 
-vim.keymap.set("c", "<CR>", function()
-    if vim.fn.pumvisible() == 1 then return '<C-y>' end
-    return '<CR>'
-end, { expr = true })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -45,8 +42,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 
 -- Perforce
-vim.keymap.set("n", "<leader>pa", function() require("p4").P4edit() end)
-
+-- vim.keymap.set("n", "<leader>pa", function() require("p4").P4edit() end)
 
 
 

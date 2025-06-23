@@ -18,6 +18,8 @@ return {
         -- 'enter' for enter to accept
         -- 'none' for no mappings
         --
+        -- list = { selection = { preselect = true } },
+
         -- All presets have the following mappings:
         -- C-space: Open menu or open docs if already open
         -- C-n/C-p or Up/Down: Select next/previous item
@@ -25,7 +27,39 @@ return {
         -- C-k: Toggle signature help (if signature.enabled = true)
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        keymap = { preset = 'default' },
+        keymap = {
+            preset = 'super-tab',
+            ["<CR>"] = { "accept", "fallback" },
+            -- ["<Tab>"] = {
+            --     function(cmp)
+            --         if cmp.snippet_active() then
+            --             cmp.select_next()
+            --         end
+            --     end, 'fallback'
+            -- },
+            ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+
+        },
+
+        cmdline = {
+            keymap = {
+                ['<CR>'] = { 'accept', 'fallback' },
+            },
+            sources = {
+                'path', 'cmdline'
+
+                -- providers = {
+                --     path = {
+                --         opts = {
+                --             trailing_slash = false,
+                --             label_trailing_slash = false,
+                --             show_hidden_files_by_default = true,
+                --         }
+                --     }
+                -- }
+            }
+        },
 
         appearance = {
             -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -34,12 +68,27 @@ return {
         },
 
         -- (Default) Only show the documentation popup when manually triggered
-        completion = { documentation = { auto_show = false } },
+        completion = {
+            documentation = { auto_show = false },
+        },
 
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
+
+            providers = {
+                path = {
+                    opts = {
+                        trailing_slash = false,
+                        label_trailing_slash = false,
+                        get_cwd = function(ctx)
+                            return vim.fn.expand(("#%d:p:h"):format(ctx.bufnr))
+                        end,
+                        show_hidden_files_by_default = true,
+                    }
+                }
+            }
         },
 
         -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

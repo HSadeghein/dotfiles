@@ -7,7 +7,9 @@ vim.g.loaded_netrwPlugin = 1
 
 
 vim.wo.number = true
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+vim.opt.shellslash = true -- Use forward slashes on Windows
 
 ---WORKAROUND
 -- vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
@@ -23,6 +25,7 @@ vim.wo.number = true
 -- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = '#6A9955', bg = 'NONE' })
 
 local set = vim.opt -- set options
+
 
 -- set.mouse = a
 set.wrap = false
